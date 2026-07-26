@@ -1,0 +1,16 @@
+{
+  "name": "marginalia-bookshelf",
+  "version": "1.0.0",
+  "description": "Marginalia — a bookstore catalog with a shelf-browsing frontend and an Express/SQLite backend.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

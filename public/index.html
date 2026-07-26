@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marginalia — a bookshop for people who write in the margins</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      <div class="brand-text">
+        <h1>Marginalia</h1>
+        <p>a shop for books that get written in</p>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <input id="searchInput" type="search" placeholder="Search by title or author…" aria-label="Search books" />
+      <span class="search-count" id="resultCount" aria-live="polite"></span>
+    </div>
+    <div class="account-wrap">
+      <span id="accountUsername"></span>
+      <button id="logoutBtn" class="chip" type="button">Log out</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="shelf-section" aria-labelledby="shelfHeading">
+    <div class="wrap">
+      <h2 id="shelfHeading">Pull one off the shelf</h2>
+      <p class="shelf-hint">Spine width follows page count. Click a spine to open it.</p>
+    </div>
+    <div class="shelf-scroll" id="shelfScroll" role="list" aria-label="Featured books, browsable as a shelf">
+      <!-- spines injected here -->
+    </div>
+    <div class="shelf-ledge" aria-hidden="true"></div>
+  </section>
+
+  <section class="catalog-section" aria-labelledby="catalogHeading">
+    <div class="wrap">
+      <div class="catalog-head">
+        <h2 id="catalogHeading">Full catalog</h2>
+        <select id="sortSelect" aria-label="Sort books">
+          <option value="title">Title, A–Z</option>
+          <option value="newest">Newest first</option>
+          <option value="rating">Highest rated</option>
+          <option value="price_asc">Price, low to high</option>
+          <option value="price_desc">Price, high to low</option>
+        </select>
+      </div>
+
+      <div class="chip-row" id="chipRow" role="tablist" aria-label="Filter by category">
+        <button class="chip is-active" data-category="" role="tab" aria-selected="true">All sections</button>
+        <!-- category chips injected here -->
+      </div>
+
+      <div class="grid" id="bookGrid" aria-live="polite">
+        <!-- book cards injected here -->
+      </div>
+
+      <p class="empty-state" id="emptyState" hidden>
+        Nothing on the shelf matches that. Try another title, author, or section.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Marginalia — every copy here has room in the margins.</p>
+  </div>
+</footer>
+
+<!-- Detail panel -->
+<div class="panel-backdrop" id="panelBackdrop"></div>
+<aside class="detail-panel" id="detailPanel" aria-hidden="true" aria-labelledby="detailTitle">
+  <button class="panel-close" id="panelClose" aria-label="Close book details">×</button>
+  <div class="panel-body" id="panelBody">
+    <!-- filled by JS -->
+  </div>
+</aside>
+
+<script src="/app.js"></script>
+</body>
+</html>
